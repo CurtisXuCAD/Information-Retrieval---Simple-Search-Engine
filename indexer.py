@@ -71,10 +71,10 @@ def extract_content(file_path):
             important_html_content = bold + strong + h1 + h2 + h3 + title
         
             #store important words
-            important_word_tokens = word_tokenize(content_text)  
-            for html_words in important_word_tokens:
-                if word.isalnum():
-                    important_words.append(ks.stem(html_words))
+            for html_words in important_html_content:
+                words = html_words.text.split()
+                for word in words:
+                    important_words.append(ks.stem(word))
                 
             #store regular words
 
