@@ -117,6 +117,18 @@ def process_index(file_path):
                 words_index[r_word] = {url: 1}
                 
             words_set.add(r_word)
+        
+        for r_word in important_words:
+            # dict type: dict{ key:word, value: dict{ key:url, value: frequency}}            
+            if r_word in words_index:
+                if url in words_index[r_word]:
+                    words_index[r_word][url] += 20
+                else:
+                    words_index[r_word][url] = 20
+            else:
+                words_index[r_word] = {url: 20}
+                
+            words_set.add(r_word)
 
 def store_index():
     

@@ -88,6 +88,7 @@ if __name__ == '__main__':
     while True:
         query = input("\nPlease type in the key word: (Press ENTER directly to EXIT)\n")
         print()
+        start = time.clock()
         if query == "":
             print("END")
             break
@@ -96,5 +97,8 @@ if __name__ == '__main__':
             get_top_5_answer(answer)
         else:
             print(f"There are no results about \"{query}\" !")
+        
+        end = time.clock()
+        print(end-start,"s")
     
     
