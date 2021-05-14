@@ -87,18 +87,21 @@ if __name__ == '__main__':
     # file_paths = get_file_path("C:/Users/Owner/OneDrive/Desktop/CS121/Assignment3 M1/words_index")
     while True:
         query = input("\nPlease type in the key word: (Press ENTER directly to EXIT)\n")
-        print()
         start = time.clock()
         if query == "":
             print("END")
             break
+        print()
         answer = intersect(search_query(query))
         if len(answer) != 0:
+            end = time.clock()
+            print(f"Found {len(answer)} results ({format(end-start,'.3f')})seconds")
+            print(f"Top {len(answer) if len(answer) < 5 else 5} results:")
             get_top_5_answer(answer)
         else:
             print(f"There are no results about \"{query}\" !")
         
-        end = time.clock()
-        print(end-start,"s")
+        # end = time.clock()
+        # print(end-start,"s")
     
     
