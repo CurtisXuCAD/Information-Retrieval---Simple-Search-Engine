@@ -22,8 +22,15 @@ This is a UCI CS 122A Information Retrieval Class Assignment
                 18. Software Evaluation
                 19. University of California, San Diego
                 20. career fair
+                
+                
 tf: term frequency
 idf: inverse document frequency
+Search interface
+The response to search queries should be ≤ 300ms. Ideally it would be . 100ms,
+but you won’t be penalized if it’s higher (as long as it’s kept ≤ 300ms).
+
+
 Ranking: 
 First, we precompute the tf and idf scores for every term, and we build the N length vector for each document, using the tf * idf of each term as the entries.
 Then, we compute the query, and get a result set of matching documents (using previously described techniques).
