@@ -2,6 +2,7 @@
 This is a UCI CS 122A Information Retrieval Class Assignment
 
 20 test quries:
+
                 1.  cristina lopes
                 2.  machine learning
                 3.  ACM
