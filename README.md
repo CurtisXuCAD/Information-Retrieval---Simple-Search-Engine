@@ -40,5 +40,6 @@ We sort the documents by this score, and return them, in order.
 
 runtime performance:
 
+execution time of code in milliseconds in Python
 
 
