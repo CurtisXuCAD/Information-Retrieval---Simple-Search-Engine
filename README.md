@@ -22,3 +22,16 @@ This is a UCI CS 122A Information Retrieval Class Assignment
                 18. Software Evaluation
                 19. University of California, San Diego
                 20. career fair
+tf: term frequency
+idf: inverse document frequency
+Ranking: 
+First, we precompute the tf and idf scores for every term, and we build the N length vector for each document, using the tf * idf of each term as the entries.
+Then, we compute the query, and get a result set of matching documents (using previously described techniques).
+After this, we compute the vector for the query, which is also of length N and uses the tf * idf as each of its entries.
+Then, we calculate the similarity between the query and each document in the result set (using cosine similarity), and get a score for each document.
+We sort the documents by this score, and return them, in order.
+
+runtime performance:
+
+
+
