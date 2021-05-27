@@ -26,7 +26,13 @@ This is a UCI CS 122A Information Retrieval Class Assignment
                 
                 
 tf: term frequency
+The number of times a word appears in a document divded by the total number of words in the document.
+
+
 idf: inverse document frequency
+The log of the number of documents divided by the number of documents that contain the word w. Inverse data frequency determines the weight of rare words across all documents in the corpus.
+
+
 Search interface
 The response to search queries should be ≤ 300ms. Ideally it would be . 100ms,
 but you won’t be penalized if it’s higher (as long as it’s kept ≤ 300ms).
