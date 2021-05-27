@@ -40,10 +40,20 @@ but you won’t be penalized if it’s higher (as long as it’s kept ≤ 300ms)
 
 Ranking: 
 First, we compute the tf and idf scores for every term, and tf * idf of each term.
+
+
 Then, we compute the query, and get a result.
+
+
 After this, we compute the vector for the query.
+
+
 Then, we calculate the similarity between the query and each document in the result set (using cosine similarity), and get a score for each document.
+
+
 We sort the documents by this score.
+
+
 
 runtime performance:
 
