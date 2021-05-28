@@ -1,6 +1,10 @@
 # Information-Retrieval
 This is a UCI CS 122A Information Retrieval Class Assignment
-Assignment 3: Milestone 3: Search engine
+
+
+Assignment 3: Search engine
+
+
 20 test quries:
 
                 1.  cristina lopes
