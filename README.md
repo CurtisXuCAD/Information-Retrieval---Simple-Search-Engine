@@ -45,19 +45,24 @@ Assignment 3: Search engine
 
 
     get_file_path:
-
+             return a matrix, including all files and the frequency of the words in the file
+            
 
     extract_content:
-
+          
+          
 
     search_query:
 
-
+          
+          
     intersect:
-
+          
+          
 
     get_top_5_answer:
-
+            
+            
 
 tf: term frequency
 The number of times a word appears in a document divded by the total number of words in the document.
