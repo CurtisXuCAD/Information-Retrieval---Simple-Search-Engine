@@ -32,22 +32,31 @@ Assignment 3: Search engine
 --Indexer.py--
 
 
+    get_file_path:
+    
+    extract_content:
+    
+    process_index:
+    
+    store_index:
+    
+
 --Search.py--
 
 
-    -get_file_path:
+    get_file_path:
 
 
-    -extract_content:
+    extract_content:
 
 
-    -search_query:
+    search_query:
 
 
-    -intersect:
+    intersect:
 
 
-    -get_top_5_answer:
+    get_top_5_answer:
 
 
 tf: term frequency
