@@ -47,7 +47,7 @@ Assignment 3: Search engine
          call the extract_content function to get the contents that we need. 
          The function contains 3 global variables, which include a words_index dictionary that stores the words with their related docID 
          and frequency, a docUrls dicionary that include all the file paths, a words_set is the set that store all words information. 
-         The keys of words_index are words, and the value is another dictionary that the keys are file paths, and values are frequency.
+         The keys of words_index are word, and the value is another dictionary that the keys are file paths, and values are frequency.
 
     store_index:
         
