@@ -34,14 +34,16 @@ Assignment 3: Search engine
 
     get_file_path:
           
-       take a path-like string (foldername) as parameter and return all files' paths in that folder and its subfolders.   
+       take a path-like string foldername as parameter and return all files' paths in that folder and its subfolders.   
           
     extract_content:
     
-        
+        extract the useful contents from the json files . This function will return a list that include three child list inside: the url that the json file contains and important word list and regular word list. We use beautiful soap findall function to get important words by catching their tags and get the html content. 
     
     process_index:
-    
+         
+         
+         
     store_index:
     
 
