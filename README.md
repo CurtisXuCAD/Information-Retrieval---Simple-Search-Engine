@@ -50,7 +50,9 @@ Assignment 3: Search engine
          The keys of words_index are word, and the value is another dictionary that the keys are file paths, and values are frequency.
 
     store_index:
-        
+    
+        words_index folder store all the index dict to files: files named by the first 2 char of the word 
+        words_summary.json file has all words count and the all words that we stored from content.
 
 --Search.py--
 
