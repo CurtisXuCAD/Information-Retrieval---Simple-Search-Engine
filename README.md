@@ -33,8 +33,12 @@ Assignment 3: Search engine
 
 
     get_file_path:
-    
+          
+       take a path-like string (foldername) as parameter and return all files' paths in that folder and its subfolders.   
+          
     extract_content:
+    
+        
     
     process_index:
     
@@ -46,7 +50,7 @@ Assignment 3: Search engine
 
     get_file_path:
     
-    take a query word as parameter and return its index file path in the file.
+          take a query word as parameter and return its index file path in the file.
             
     extract_content:
           
