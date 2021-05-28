@@ -28,7 +28,28 @@ Assignment 3: Search engine
                 19. University of California, San Diego
                 20. career fair
                 
-               
+                
+--Indexer.py--
+
+
+--Search.py--
+
+
+    -get_file_path:
+
+
+    -extract_content:
+
+
+    -search_query:
+
+
+    -intersect:
+
+
+    -get_top_5_answer:
+
+
 tf: term frequency
 The number of times a word appears in a document divded by the total number of words in the document.
 
