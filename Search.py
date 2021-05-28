@@ -13,7 +13,8 @@ def get_file_path(query_word):
     """
     get_file_path() take a query word and its index file path
     """
-    index_files_path = "D:\\OneDrive\\ICS\\CS 121\\CS121 Assignment\\Assignment3 M1\\words_index"
+    # index_files_path = "D:\\OneDrive\\ICS\\CS 121\\CS121 Assignment\\Assignment3 M1\\words_index"
+    index_files_path = "words_index"
     query_index_path = ""
     if len(query_word) > 1:
         query_index_path = index_files_path + "\\" + query_word[0] + "\\" + query_word[:2] + ".json"
@@ -77,7 +78,15 @@ def get_top_5_answer(answer):
     while True:
         if i >= 5 or i >= len(sorted_answer):
             break
-        print(sorted_answer[i])
+        # print(sorted_answer[i])
+        with open("words_index\\doc_id_urls.json") as f:
+            f.seek(0, 0)
+            line = f.readline()
+            for j in range(int(sorted_answer[i])):
+                line = f.readline()
+            line = "{" + line.rstrip(",\n") + "}"
+            data = json.loads(line)
+            print(data[sorted_answer[i]])
         i += 1
 
 

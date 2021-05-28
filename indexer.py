@@ -18,6 +18,8 @@ ks = krovetz.PyKrovetzStemmer()
 words_set = set()
 words_index = dict()
 file_count = 0
+docUrls = dict()
+docIDCount = 1
 
 def get_file_path(folderName):
     """
@@ -106,29 +108,48 @@ def process_index(file_path):
     url = content[0]
     important_words = content[1]
     regular_words = content[2]
+    
+    global docIDCount
+    
     if len(regular_words) != 0:
         for r_word in regular_words:
             
-            # dict type: dict{ key:word, value: dict{ key:url, value: frequency}}            
+            # dict type: dict{ key:word, value: dict{ key:url, value: frequency}}
+            docID = 0
+            if url in docUrls:
+                docID = docUrls[url]
+            else:
+                docID = docIDCount
+                docUrls[url] = docID
+                docIDCount += 1
+                     
             if r_word in words_index:
                 if url in words_index[r_word]:
-                    words_index[r_word][url] += 1
+                    words_index[r_word][docID] += 1
                 else:
-                    words_index[r_word][url] = 1
+                    words_index[r_word][docID] = 1
             else:
-                words_index[r_word] = {url: 1}
+                words_index[r_word] = {docID: 1}
                 
             words_set.add(r_word)
         
         for r_word in important_words:
-            # dict type: dict{ key:word, value: dict{ key:url, value: frequency}}            
+            # dict type: dict{ key:word, value: dict{ key:url, value: frequency}}    
+            docID = 0
+            if url in docUrls:
+                docID = docUrls[url]
+            else:
+                docID = docIDCount
+                docUrls[url] = docID
+                docIDCount += 1
+            
             if r_word in words_index:
                 if url in words_index[r_word]:
-                    words_index[r_word][url] += 20
+                    words_index[r_word][docID] += 20
                 else:
-                    words_index[r_word][url] = 20
+                    words_index[r_word][docID] = 20
             else:
-                words_index[r_word] = {url: 20}
+                words_index[r_word] = {docID: 20}
                 
             words_set.add(r_word)
 
@@ -138,6 +159,13 @@ def store_index():
     
     if os.path.exists("words_index") == False:
         os.mkdir("words_index")
+    
+    docIDs = dict()
+    for url in docUrls:
+        docIDs[docUrls[url]] = url
+    
+    with open("words_index\\"+"doc_id_urls.json","w",encoding='utf-8') as f:
+        json.dump(docIDs,f,indent= 4)
     
     with open("words_summary.json","w",encoding='utf-8') as f:
         result = dict()
@@ -211,7 +239,7 @@ if __name__ == '__main__':
     #timer
     start = time.clock()
     
-    file_paths = get_file_path("DEV")
+    file_paths = get_file_path("D:\OneDrive\ICS\CS 121\CS121 Assignment\Assignment3 M1\ANALYST")
     for p in file_paths:
         process_index(p)
     store_index()
