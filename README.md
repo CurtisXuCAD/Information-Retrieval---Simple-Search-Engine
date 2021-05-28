@@ -39,16 +39,17 @@ Assignment 3: Search engine
     extract_content:
     
         extract the useful contents from the json files . 
-        This function will return a list that include three child list inside: 
-        the url that the json file contains and important word list and regular word list. 
+        This function will return a list which are the url that the json file contains and important word list and regular word list. 
         We use beautiful soap findall function to get important words by catching their tags and get the html content. 
     
     process_index:
          
-         
-         
+         call the extract_content function to get the contents that we need. 
+         The function contains 3 global variables, which include a words_index dictionary that stores the words with their related docID and frequency, a docUrls dicionary that include all the file paths, a words_set is the set that store all words information. 
+         The keys of words_index dictionary are words, and the value is another child dictionary that the keys are file paths, and values are frequency.
+
     store_index:
-    
+        
 
 --Search.py--
 
