@@ -38,7 +38,10 @@ Assignment 3: Search engine
           
     extract_content:
     
-        extract the useful contents from the json files . This function will return a list that include three child list inside: the url that the json file contains and important word list and regular word list. We use beautiful soap findall function to get important words by catching their tags and get the html content. 
+        extract the useful contents from the json files . 
+        This function will return a list that include three child list inside: 
+        the url that the json file contains and important word list and regular word list. 
+        We use beautiful soap findall function to get important words by catching their tags and get the html content. 
     
     process_index:
          
