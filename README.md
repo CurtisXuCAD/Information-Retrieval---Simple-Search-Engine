@@ -1,6 +1,6 @@
-# Information-Retrieval---Simple-Search-Engine
+# Information-Retrieval
 This is a UCI CS 122A Information Retrieval Class Assignment
-
+Assignment 3: Milestone 3: Search engine
 20 test quries:
 
                 1.  cristina lopes
@@ -24,7 +24,7 @@ This is a UCI CS 122A Information Retrieval Class Assignment
                 19. University of California, San Diego
                 20. career fair
                 
-                
+               
 tf: term frequency
 The number of times a word appears in a document divded by the total number of words in the document.
 
