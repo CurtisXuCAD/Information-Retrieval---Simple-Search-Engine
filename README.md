@@ -28,13 +28,11 @@ Assignment 3: Search engine
                 19. University of California, San Diego
                 20. career fair
 
-For Query 10 -- **aux**, we choose **aux** since Windows operating system prohibits us to create **aux.json**. **aux.json** is reserved filename in windows. To avoid doing that, we choose the first two initial characters to make an index file. Also, we create an index file with the word itself for words have more than five characters.(ex: student --> student.json)
+For Query 10 -- **aux**, we choose **aux** since Windows operating system prohibits us to create **aux.json**. **aux.json** is reserved filename in windows. To avoid doing that, we choose the first two initial characters to make an index file. Also, we create an index file with a the word itself for words have more than five characters.(ex: student --> student.json)
 
 For Query 1,2,3,6, we at first doing poorly on ranking the result, so we justify the value of an important word (title, subtile, bold, ...) to make the result more acceptable. We try to increase important words frequency to have better score on the ranking system.
 
-For Query 4,7,11,12,13,14,15,16,19, the efficient for these queries are poor and unstable at first since there are too many document having these words. We tested the time taken by each function one by one to find out which function takes the longest time. By doing so, we found that the efficient is poor since the index file is quite large and it is time consuming to load the file to python dict. Thus, we modify the indexer to make it create an index file with the word itself for words have more than five characters. This helps us make the query time reduce to less than 100ms for these queries.
-
-For Query 20, we first end up having to answer since we removed all the stop words in query. Thus we and the tf-idf score since we know that the idf score can handle stop words (common words).
+For Query 
 
 --Indexer.py--
 
