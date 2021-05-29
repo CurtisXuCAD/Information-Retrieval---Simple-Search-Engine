@@ -63,14 +63,19 @@ Assignment 3: Search engine
             
     extract_content:
           
+          take a query word and json_file path as parameter and return the matrix of query word index.
           
     search_query:
-
+          
+          take a query as parameter and tokenize the query with stopwords and krovetz stemmer and return list of store word's index dictionary.
               
     intersect:
           
+          merge the query(AND only) and get common to both of the initial lists and return them into answer dictionary.
           
     get_top_5_answer:
+            
+            print the top 5 URLs for each of the queries. 
             
             
 tf: term frequency
