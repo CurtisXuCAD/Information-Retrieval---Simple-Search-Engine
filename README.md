@@ -4,8 +4,12 @@ This is a UCI CS 122A Information Retrieval Class Assignment
 
 Assignment 3: Search engine
 
+##### Required library:
+      NLTK
+      krovetz
+      bs -- BeautifulSoup
 
-20 test queries:
+##### 20 test queries:
 
                 1.  cristina lopes
                 2.  machine learning

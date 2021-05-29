@@ -96,6 +96,7 @@ def intersect(query_indexes):
 def get_top_5_answer(answer):
     sorted_answer = sorted(answer.keys(), key=lambda x: answer[x], reverse=True)
     i = 0
+    results = []
     while True:
         if i >= 5 or i >= len(sorted_answer):
             break
@@ -108,7 +109,28 @@ def get_top_5_answer(answer):
             line = "{" + line.rstrip(",\n") + "}"
             data = json.loads(line)
             print(data[sorted_answer[i]])
+            results.append(data[sorted_answer[i]])
         i += 1
+    return results
+
+def run(query):
+    results = []
+    start = time.clock()
+    answer = intersect(search_query(query))
+    numOfResults = 0
+    text = []
+    if len(answer) != 0:
+        end = time.clock()
+        text.append(f"Found {len(answer)} results ({format(end-start,'.3f')})seconds")
+        print(f"Found {len(answer)} results ({format(end-start,'.3f')})seconds")
+        numOfResults = len(answer)
+        text.append(f"Top {len(answer) if len(answer) < 5 else 5} results:")
+        print(f"Top {len(answer) if len(answer) < 5 else 5} results:")
+        results += get_top_5_answer(answer)
+    else:
+        print(f"There are no results about \"{query}\" !")   
+        text.append(f"There are no results about \"{query}\" !")
+    return text,results,format(end-start,'.3f'),numOfResults
 
 
 # what does screenshot of your search interface in text?

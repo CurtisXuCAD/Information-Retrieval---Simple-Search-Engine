@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+
+<div>
+
+<h1 align="center"> Search Results:</h1>
+
+{%for i in text%}
+    <a href="{{ i }}" target="_blank" style="text-decoration: none; color:#808080" ><font size="5"> {{ i }}</font></a></br>
+{% endfor %}
+
+{%for i in data%}
+    <a href="{{ i }}"><font size="10"> {{ i }}</font></a></br>
+    <br></br>
+{% endfor %}
+
+<form action="/s" method="get">
+    <input type="text" name="wd" style="font-size: 20pt">
+    <input type="submit" value="Search" style="font-size: 15pt">
+</form>
+
+</div>
+</body>
+</html>
