@@ -130,6 +130,7 @@ def run(query):
     else:
         print(f"There are no results about \"{query}\" !")   
         text.append(f"There are no results about \"{query}\" !")
+        end = time.clock()
     return text,results,format(end-start,'.3f'),numOfResults
 
 
