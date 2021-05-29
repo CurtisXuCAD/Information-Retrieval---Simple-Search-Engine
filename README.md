@@ -91,4 +91,6 @@ The response to search queries should be ≤ 300ms. Ideally it would be . 100ms,
 but you won’t be penalized if it’s higher (as long as it’s kept ≤ 300ms).
 
 ---------conclusion--------
+
+
 The most chanllenge part of this proejct is how to efficiently access larger collection of web pages and store and extract information. We came up with the idea. At first, we try to get the tfidf score for each term and make a words index folder based on the score. The folder contains list of folders with initial letter of the word. The folder of initial character has list of json files with their first two characters of the word and each file has related word index dictionary who starts with those two characters. Base on this storing strategy, we didn’t meet too many problems while ranking and searching, and the speed is acceptable. 
