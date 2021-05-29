@@ -40,7 +40,7 @@ def search_query(query):
     query = word_tokenize(query)
     # tokenize the query
     for word in query:
-        if word not in stop_words: # remove stop words
+        # if word not in stop_words and len(query) > 1: # remove stop words
             if word.isalnum(): 
                 words.append(ks.stem(word))
     

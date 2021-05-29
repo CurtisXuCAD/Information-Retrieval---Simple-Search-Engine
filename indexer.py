@@ -251,7 +251,7 @@ if __name__ == '__main__':
     #timer
     start = time.clock()
     
-    file_paths = get_file_path("D:\OneDrive\ICS\CS 121\CS121 Assignment\Assignment3 M1\ANALYST")
+    file_paths = get_file_path("D:\OneDrive\ICS\CS 121\CS121 Assignment\Assignment3 M1\DEV")
     for p in file_paths:
         process_index(p)
     store_index()
