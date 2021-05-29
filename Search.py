@@ -33,7 +33,7 @@ def extract_content(json_file, query_word):
 
 #   1 cristina lopes, 2 machine learning, 3 ACM, 4 master of software engineering
 def search_query(query):
-    start1 = time.clock()
+    # start1 = time.clock()
     #   words = ['cristina', 'lopes'] etc..
     words = []
     query_indexes= [] # list to store word's index dict
@@ -45,24 +45,24 @@ def search_query(query):
                 words.append(ks.stem(word))
     
     for w in words:
-        start = time.clock()
+        # start = time.clock()
         query_index_path = get_file_path(w)
-        end = time.clock()
-        print("get_file_path:",end-start)
+        # end = time.clock()
+        # print("get_file_path:",end-start)
         
         try:
             #append query word's index dict
-            start2 = time.clock()
+            # start2 = time.clock()
             query_indexes.append(extract_content(query_index_path, w))
-            end2 = time.clock()
-            print("extract_content:",end2-start2)
+            # end2 = time.clock()
+            # print("extract_content:",end2-start2)
                        
         except:
             #if file not found exception or can find word in matrix, it mean there is no indexed about this word
             print(f"Can't find anything about \"{w}\" !")
             # query_indexes.append({})
-    end1 = time.clock()
-    print("search query:",end1-start1)
+    # end1 = time.clock()
+    # print("search query:",end1-start1)
     return query_indexes
 
 # def query_prod(query):
