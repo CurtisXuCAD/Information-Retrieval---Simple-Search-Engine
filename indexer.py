@@ -6,6 +6,7 @@ import string
 import sys
 import traceback
 import time
+import math
 from urllib.parse import urldefrag
 # import bleach
 from bs4 import BeautifulSoup
@@ -20,6 +21,7 @@ words_index = dict()
 file_count = 0
 docUrls = dict()
 docIDCount = 1
+docLengths = dict()
 
 def get_file_path(folderName):
     """
@@ -86,6 +88,8 @@ def extract_content(file_path):
             for word in word_tokens:
                 if word.isalnum():
                     regular_words.append(ks.stem(word))
+            
+            docLengths[url] = len(regular_words)
                 # if word not in string.punctuation and word != "'s":
                 # if word.isalpha():
                 # if word not in string.punctuation and word != "'s":
@@ -124,7 +128,7 @@ def process_index(file_path):
                 docIDCount += 1
                      
             if r_word in words_index:
-                if url in words_index[r_word]:
+                if docID in words_index[r_word]:
                     words_index[r_word][docID] += 1
                 else:
                     words_index[r_word][docID] = 1
@@ -144,12 +148,12 @@ def process_index(file_path):
                 docIDCount += 1
             
             if r_word in words_index:
-                if url in words_index[r_word]:
-                    words_index[r_word][docID] += 20
+                if docID in words_index[r_word]:
+                    words_index[r_word][docID] += 5
                 else:
-                    words_index[r_word][docID] = 20
+                    words_index[r_word][docID] = 5
             else:
-                words_index[r_word] = {docID: 20}
+                words_index[r_word] = {docID: 5}
                 
             words_set.add(r_word)
 
@@ -165,6 +169,7 @@ def store_index():
         docIDs[docUrls[url]] = url
     
     with open("words_index\\"+"doc_id_urls.json","w",encoding='utf-8') as f:
+        # f.write(str(len(docIDs)))
         json.dump(docIDs,f,indent= 4)
     
     with open("words_summary.json","w",encoding='utf-8') as f:
@@ -180,8 +185,15 @@ def store_index():
             if os.path.exists("words_index\\"+word[0]) == False:
                 os.mkdir("words_index\\"+word[0])
             
+            for d in value:
+                # tf = value[d]/docLengths[docIDs[d]]
+                tf = 1+math.log(value[d])
+                idf = math.log(len(docIDs) / len(value))
+                tf_idf = tf*idf
+                value[d] = tf_idf
+                
             
-            if len(word) > 1:
+            if len(word) > 1 and len(word) < 5:
                 
                 r_word_path = "words_index\\"+word[0]+"\\"+word[:2]+".json"
                 

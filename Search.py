@@ -1,9 +1,11 @@
 import glob
 import json
 import time
+import math
 import krovetz
 from nltk.corpus import stopwords
 from collections import defaultdict
+from nltk.tokenize import word_tokenize
 
 ks = krovetz.PyKrovetzStemmer()
 stop_words = set(stopwords.words('english'))
@@ -16,10 +18,10 @@ def get_file_path(query_word):
     # index_files_path = "D:\\OneDrive\\ICS\\CS 121\\CS121 Assignment\\Assignment3 M1\\words_index"
     index_files_path = "words_index"
     query_index_path = ""
-    if len(query_word) > 1:
+    if len(query_word) > 1 and len(query_word) < 5:
         query_index_path = index_files_path + "\\" + query_word[0] + "\\" + query_word[:2] + ".json"
     else:
-        query_index_path = index_files_path + "\\" + query_word[0] + query_word[0] + ".json"
+        query_index_path = index_files_path + "\\" + query_word[0] + "\\" + query_word + ".json"
     return query_index_path
 
 def extract_content(json_file, query_word):
@@ -31,34 +33,53 @@ def extract_content(json_file, query_word):
 
 #   1 cristina lopes, 2 machine learning, 3 ACM, 4 master of software engineering
 def search_query(query):
+    start1 = time.clock()
     #   words = ['cristina', 'lopes'] etc..
     words = []
     query_indexes= [] # list to store word's index dict
-    query = query.split()
+    query = word_tokenize(query)
     # tokenize the query
     for word in query:
-        # if word not in stop_words: # remove stop words
-            words.append(ks.stem(word))
+        if word not in stop_words: # remove stop words
+            if word.isalnum(): 
+                words.append(ks.stem(word))
     
     for w in words:
+        start = time.clock()
         query_index_path = get_file_path(w)
+        end = time.clock()
+        print("get_file_path:",end-start)
         
         try:
             #append query word's index dict
+            start2 = time.clock()
             query_indexes.append(extract_content(query_index_path, w))
+            end2 = time.clock()
+            print("extract_content:",end2-start2)
                        
         except:
             #if file not found exception or can find word in matrix, it mean there is no indexed about this word
             print(f"Can't find anything about \"{w}\" !")
-            query_indexes.append({})
-    
+            # query_indexes.append({})
+    end1 = time.clock()
+    print("search query:",end1-start1)
     return query_indexes
+
+# def query_prod(query):
+#     d = {x:query.count(x) for x in query}
+#     norm_vector = math.sqrt(sum((1+math.log(d[x]))**2 for x in d))
+#     for word in d:
+#         wt = 1+math.log(d[word])
+#         d[word] = wt/norm_vector
+#     return d
+
 
 # merge query
 def intersect(query_indexes):
     answer = defaultdict(int)
-    
     #
+    if len(query_indexes) == 0:
+        return answer
     intersections = query_indexes[0].keys()
     for i in query_indexes:
         intersections = intersections & i.keys()
