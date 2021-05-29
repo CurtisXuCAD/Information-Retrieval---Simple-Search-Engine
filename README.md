@@ -46,12 +46,15 @@ For Query 20, we first end up having to answer since we removed all the stop wor
     get_file_path:
           
        take a path-like string foldername as parameter and return all files' paths in that folder and its subfolders.   
+       ---return file_paths
+
           
     extract_content:
     
         extract the useful contents from the json files . 
         This function will return a list which are the url that the json file contains and important word list and regular word list. 
         We use beautiful soap findall function to get important words by catching their tags and get the html content. 
+        ---return (url, important_words, regular_words)
     
     process_index:
          
@@ -59,11 +62,14 @@ For Query 20, we first end up having to answer since we removed all the stop wor
          The function contains 3 global variables, which include a words_index dictionary that stores the words with their related 
          docID and frequency, a docUrls dicionary that include all the file paths, a words_set is the set that store all words information. 
          The keys of words_index are word, and the value is another dictionary that the keys are file paths, and values are frequency.
+         ---modified the words_set
+
 
     store_index:
     
         words_index folder store all the index dict to files: files named by the first 2 char of the word 
         words_summary.json file has all words count and the all words that we stored from content.
+        --- implement for the tf-idf to the words_index's value
 
 --Search.py--
 
@@ -71,22 +77,28 @@ For Query 20, we first end up having to answer since we removed all the stop wor
     get_file_path:
     
           take a query word as parameter and return its index file path in the file.
+          ---return query_index_path
             
     extract_content:
           
           take a query word and json_file path as parameter and return the matrix of query word index.
+          ---return query_index_dict 
           
     search_query:
           
           take a query as parameter and tokenize the query with stopwords and krovetz stemmer and return list of store word's index dictionary.
+           --- return query_indexes
               
     intersect:
           
           merge the query(AND only) and get common to both of the initial lists and return them into answer dictionary.
+          --- return the result of the intersect of query
           
     get_top_5_answer:
             
-            print the top 5 URLs for each of the queries. 
+            print the top 5 URLs for each of the queries.
+            ---  print(data[sorted_answer[i]])
+
             
             
 tf: term frequency
