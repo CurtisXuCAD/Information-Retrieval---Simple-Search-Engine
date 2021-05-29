@@ -1,7 +1,11 @@
-# Information-Retrieval---Simple-Search-Engine
+# Information-Retrieval
 This is a UCI CS 122A Information Retrieval Class Assignment
 
-20 test quries:
+
+Assignment 3: Search engine
+
+
+20 test queries:
 
                 1.  cristina lopes
                 2.  machine learning
@@ -25,6 +29,55 @@ This is a UCI CS 122A Information Retrieval Class Assignment
                 20. career fair
                 
                 
+--Indexer.py--
+
+
+    get_file_path:
+          
+       take a path-like string foldername as parameter and return all files' paths in that folder and its subfolders.   
+          
+    extract_content:
+    
+        extract the useful contents from the json files . 
+        This function will return a list which are the url that the json file contains and important word list and regular word list. 
+        We use beautiful soap findall function to get important words by catching their tags and get the html content. 
+    
+    process_index:
+         
+         call the extract_content function to get the contents that we need. 
+         The function contains 3 global variables, which include a words_index dictionary that stores the words with their related 
+         docID and frequency, a docUrls dicionary that include all the file paths, a words_set is the set that store all words information. 
+         The keys of words_index are word, and the value is another dictionary that the keys are file paths, and values are frequency.
+
+    store_index:
+    
+        words_index folder store all the index dict to files: files named by the first 2 char of the word 
+        words_summary.json file has all words count and the all words that we stored from content.
+
+--Search.py--
+
+
+    get_file_path:
+    
+          take a query word as parameter and return its index file path in the file.
+            
+    extract_content:
+          
+          take a query word and json_file path as parameter and return the matrix of query word index.
+          
+    search_query:
+          
+          take a query as parameter and tokenize the query with stopwords and krovetz stemmer and return list of store word's index dictionary.
+              
+    intersect:
+          
+          merge the query(AND only) and get common to both of the initial lists and return them into answer dictionary.
+          
+    get_top_5_answer:
+            
+            print the top 5 URLs for each of the queries. 
+            
+            
 tf: term frequency
 The number of times a word appears in a document divded by the total number of words in the document.
 
@@ -37,26 +90,7 @@ Search interface
 The response to search queries should be ≤ 300ms. Ideally it would be . 100ms,
 but you won’t be penalized if it’s higher (as long as it’s kept ≤ 300ms).
 
-
-Ranking: 
-First, we compute the tf and idf scores for every term, and tf * idf of each term.
+---------conclusion--------
 
 
-Then, we compute the query, and get a result.
-
-
-After this, we compute the vector for the query.
-
-
-Then, we calculate the similarity between the query and each document in the result set (using cosine similarity), and get a score for each document.
-
-
-We sort the documents by this score.
-
-
-
-runtime performance:
-
-execution time of code in milliseconds in Python
-
-
+The most chanllenge part of this proejct is how to efficiently access larger collection of web pages and store and extract information. We came up with the idea. At first, we try to get the tfidf score for each term and make a words index folder based on the score. The folder contains list of folders with initial letter of the word. The folder of initial character has list of json files with their first two characters of the word and each file has related word index dictionary who starts with those two characters. Base on this storing strategy, we didn’t meet too many problems while ranking and searching, and the speed is acceptable. 
