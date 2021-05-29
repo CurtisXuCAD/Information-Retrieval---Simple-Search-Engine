@@ -16,7 +16,7 @@ Assignment 3: Search engine
                 7.  Computer Science
                 8.  department
                 9.  research opportunity
-                10. student id
+                10. aux
                 11. computer science and engineering
                 12. computer game science
                 13  Donald Bren School
@@ -27,7 +27,6 @@ Assignment 3: Search engine
                 18. Software Evaluation
                 19. University of California, San Diego
                 20. career fair
-                21. aux
                 
 --Indexer.py--
 
