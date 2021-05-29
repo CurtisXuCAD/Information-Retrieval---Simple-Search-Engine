@@ -27,7 +27,6 @@ Assignment 3: Search engine
                 18. Software Evaluation
                 19. University of California, San Diego
                 20. career fair
-                21. aux
                 
                 
 --Indexer.py--
