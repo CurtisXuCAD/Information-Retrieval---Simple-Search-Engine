@@ -4,6 +4,8 @@ This is a UCI CS 122A Information Retrieval Class Assignment
 
 Assignment 3: Search engine
 
+When start **web_main.py**, use **http://127.0.0.1:8080/** to connect to the web uci.
+
 ##### Required library:
       NLTK
       krovetz
