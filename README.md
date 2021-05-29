@@ -5,7 +5,7 @@ This is a UCI CS 122A Information Retrieval Class Assignment
 Assignment 3: Search engine
 
 
-20 test quries:
+20 test queries:
 
                 1.  cristina lopes
                 2.  machine learning
